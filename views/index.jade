@@ -1,17 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p#socketoutput Waiting for socket input
-  img(src="images/1xChecker.png")#calibimg
+  img(src="")#calibimg
   script(src="/socket.io/socket.io.js")
   script.
     var host = document.location.hostname == 'localhost' ? document.location.hostname + ':3000' : document.location.hostname;
     var socket = io('//'+host);
-    //console.log(document.location.hostname, !{JSON.stringify(port)});
-    //var socket = io('//localhost:3000');
     socket.on('socketToMe', function (data) {
-      document.getElementById("socketoutput").innerHTML = "Got socket output: " + data;
+      document.getElementById("calibimg").style.visibility = "visible";
       var src = "images/sine_00" + data + ".png";
       console.log('got socket data' + data);
       console.log('loading image', src);
