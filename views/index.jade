@@ -3,10 +3,11 @@ extends layout
 block content
   h1= title
   p#socketoutput Waiting for socket input
-  img(src="")#bgimg
+  img(src="")#calibimg
   script(src="/socket.io/socket.io.js")
   script.
-    var socket = io('//'+document.location.hostname);
+    var host = document.location.hostname == 'localhost' ? document.location.hostname + ':3000' : document.location.hostname;
+    var socket = io('//'+host);
     //console.log(document.location.hostname, !{JSON.stringify(port)});
     //var socket = io('//localhost:3000');
     socket.on('socketToMe', function (data) {
@@ -14,5 +15,5 @@ block content
       var src = "images/sine_00" + data + ".png";
       console.log('got socket data' + data);
       console.log('loading image', src);
-      document.getElementById("bgimg").src = src;
+      document.getElementById("calibimg").src = src;
     });
