@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p#socketoutput Waiting for socket input
-  img(src="")#calibimg
+  img(src="images/1xChecker.png")#calibimg
   script(src="/socket.io/socket.io.js")
   script.
     var host = document.location.hostname == 'localhost' ? document.location.hostname + ':3000' : document.location.hostname;
