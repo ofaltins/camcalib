@@ -8,7 +8,12 @@ block content
     var socket = io('//'+host);
     socket.on('socketToMe', function (data) {
       document.getElementById("calibimg").style.visibility = "visible";
-      var src = "images/sine_00" + data + ".png";
+      var src = "";
+      if (data != 'chess') {
+        src = "images/sine_00" + data + ".png";  
+      } else {
+        src = "images/chess.png";
+      }
       console.log('got socket data' + data);
       console.log('loading image', src);
       document.getElementById("calibimg").src = src;
