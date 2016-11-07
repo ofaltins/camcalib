@@ -6,8 +6,8 @@ block content
   img(src="")#bgimg
   script(src="/socket.io/socket.io.js")
   script.
-    var socket = io('//'+document.location.hostname + ':' + !{JSON.stringify(port)});
-    console.log(document.location.hostname, !{JSON.stringify(port)});
+    var socket = io('//'+document.location.hostname);
+    //console.log(document.location.hostname, !{JSON.stringify(port)});
     //var socket = io('//localhost:3000');
     socket.on('socketToMe', function (data) {
       document.getElementById("socketoutput").innerHTML = "Got socket output: " + data;
